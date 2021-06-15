@@ -29,7 +29,7 @@ To avoid spamming, add **info@emosurf.com** and **trash@emosurf.com** to blackli
   
   ![img_3.png](img/img_3.png)
 
-* Open script using any editing tool and enter victim's email to victim_email field and threads (2 is set by default)
+* Open script using any editing tool and enter victim's email to victim_email field and threads (4 is set by default)
 * Start script using `python bomb.py`
   
   ![img.png](img/img.png)

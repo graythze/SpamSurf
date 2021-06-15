@@ -5,7 +5,7 @@ from selenium import webdriver
 import time
 import threading
 
-victim_email = "testmail@mailmail.com"
+victim_email = ""
 threads = 4
 
 

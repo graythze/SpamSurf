@@ -16,6 +16,8 @@ parser.add_argument('-t', '--threads',
                     help='Enter amount of threads (4 is set by default)')
 args = parser.parse_args()
 
+victim = parser.parse_args()
+
 
 def spam():
     driver = webdriver.Chrome()
@@ -28,7 +30,7 @@ def spam():
 
     # fill email and password
     time.sleep(1)
-    driver.find_element_by_xpath('/html/body/div[5]/div/div[2]/form/div[1]/input').send_keys(args.victimEmail)
+    driver.find_element_by_xpath('/html/body/div[5]/div/div[2]/form/div[1]/input').send_keys(args.victim)
     driver.find_element_by_xpath('/html/body/div[5]/div/div[2]/form/div[2]/input').send_keys('John Doe')
 
     # make some clicks to send things to server
@@ -46,7 +48,7 @@ def spam():
 
     # enter email
     time.sleep(1)
-    driver.find_element_by_xpath('/html/body/div[5]/div/div[6]/form/div[1]/input').send_keys(args.victimEmail)
+    driver.find_element_by_xpath('/html/body/div[5]/div/div[6]/form/div[1]/input').send_keys(args.victim)
 
     while True:
         # click submit button

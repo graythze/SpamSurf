@@ -1,4 +1,4 @@
-﻿# Email Bomber
+# Email Bomber
 
 This tool allows continuous email spam without requiring registration/personal mail/enabling less secure app and other options
 
@@ -17,7 +17,4 @@ To avoid spamming, add **info@emosurf.com** and **trash@emosurf.com** to blackli
 
 ## Usage
 * Install [Python](https://www.python.org/), [Selenium](https://pypi.org/project/selenium/) and [Chrome Webdriver](https://chromedriver.chromium.org/downloads)
-* Open script using any editing tool and enter victim's email to **victim_email** field and **threads** (4 is set by default)
-* Start script using `python bomb.py`
-  
-  ![img.png](img/img.png)
+* Open cmd or PowerShell and type `python bomb.py -v <victim email> -t <amount of threads>`

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*
 
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import threading
 import argparse
 import time
@@ -14,13 +15,23 @@ parser.add_argument('-t', '--threads',
                     type=int,
                     default=4,
                     help='Enter amount of threads (4 is set by default)')
+parser.add_argument('-s', '--silence',
+                    action='store_true',
+                    help='Use this argument to run threads silently')
 args = parser.parse_args()
 
 victim = parser.parse_args()
 
 
 def spam():
-    driver = webdriver.Chrome()
+    if args.silence is None:
+        driver = webdriver.Chrome()
+        print('Threads started in window(s)')
+    else:
+        options = Options()
+        options.headless = True
+        driver = webdriver.Chrome(options=options)
+        print('Threads started silently')
 
     driver.get('https://emosurf.com/')
 

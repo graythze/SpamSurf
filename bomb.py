@@ -7,7 +7,7 @@ import argparse
 import time
 
 parser = argparse.ArgumentParser(description='Use example: python bomb.py -e <email to spam> -t <amount of threads>')
-parser.add_argument('-v', '--victim',
+parser.add_argument('victim',
                     type=str,
                     help='Enter victim email')
 parser.add_argument('-t', '--threads',

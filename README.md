@@ -17,4 +17,4 @@ To avoid spamming, add **info@emosurf.com** and **trash@emosurf.com** to blackli
 
 ## Usage
 * Install [Python](https://www.python.org/), [Selenium](https://pypi.org/project/selenium/) and [Chrome Webdriver](https://chromedriver.chromium.org/downloads)
-* Open cmd or PowerShell and type `python bomb.py -v <victim email> -t <amount of threads>`
+* Open cmd or PowerShell and type `python bomb.py -t <amount of threads> <victim email>`

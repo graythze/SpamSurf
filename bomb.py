@@ -24,14 +24,14 @@ victim = parser.parse_args()
 
 
 def spam():
-    if args.silence is None:
+    if args.silence is False:
         driver = webdriver.Chrome()
-        print('Threads started in window(s)')
+        print('Thread(s) started in window(s)')
     else:
         options = Options()
         options.headless = True
         driver = webdriver.Chrome(options=options)
-        print('Threads started silently')
+        print('Thread(s) started silently')
 
     driver.get('https://emosurf.com/')
 

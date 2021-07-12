@@ -17,24 +17,35 @@ parser.add_argument('-t', '--threads',
                     help='Enter amount of threads (4 is set by default)')
 parser.add_argument('-s', '--silence',
                     action='store_true',
-                    help='Use this argument to run threads silently')
+                    help='Run threads silently')
+parser.add_argument('-w', '--webdriver',
+                    type=str,
+                    default='chrome',
+                    help='Choose chrome or firefox webdriver (Chrome is set by default)')
 args = parser.parse_args()
-
-victim = parser.parse_args()
 
 
 def spam():
-    if args.silence is False:
-        driver = webdriver.Chrome()
-        print('Thread(s) started in window(s)')
-    else:
-        options = Options()
-        options.headless = True
-        driver = webdriver.Chrome(options=options)
-        print('Thread(s) started silently')
+    if args.webdriver is False or args.webdriver == 'chrome':
+        if args.silence is False:
+            driver = webdriver.Chrome()
+            print('Thread(s) started in window(s)')
+        else:
+            options = Options()
+            options.headless = True
+            driver = webdriver.Chrome(options=options)
+            print('Thread(s) started silently')
+    elif args.webdriver == 'firefox':
+        if args.silence is False:
+            driver = webdriver.Firefox()
+            print('Thread(s) started in window(s)')
+        else:
+            options = webdriver.FirefoxOptions()
+            options.add_argument('--headless')
+            driver = webdriver.Firefox(options=options)
+            print('Thread(s) started silently')
 
     driver.get('https://emosurf.com/')
-
     # click sub button
     time.sleep(1)
     driver.find_element_by_xpath('/html/body/div[4]/div/table/tbody/tr/td[2]/table/tbody/tr/td[7]/button').click()

@@ -6,17 +6,22 @@ This tool allows continuous email spam without requiring registration/personal m
 Spam tool uses [EmoSurf.com](https://emosurf.com/) which doesn't require account activation after registration and solving captcha after multiple attempts to recover password. It makes possible to spam about 15-20 emails per second for unlimited time
 
 ## Privacy
-While using this tool, emosurf.com will sending emails contain IP address. Victim will have emails starting at `DD-MM-YY в HH:MM с IP-адреса [xxx.xxx.xxx.xxx] отослан запрос`
+While using this tool, emosurf.com will sending emails contain your IP address. Victim will have emails starting at `DD-MM-YY в HH:MM с IP-адреса [xxx.xxx.xxx.xxx] отослан запрос`
 
-![img.png](img/img5.png)
+![img.png](img/img.png)
 
-**USE VPN IF YOU'D LIKE TO HIDE YOUR REAL IP ADDRESS**
+**USE VPN/PROXY  IF YOU'D LIKE TO HIDE YOUR REAL IP ADDRESS**
 
 ## Spamming prevention
 To avoid spamming, add **info@emosurf.com** and **trash@emosurf.com** to blacklist
 
 ## Usage
-* Install [Python](https://www.python.org/), [Selenium](https://pypi.org/project/selenium/) and [Chrome Webdriver](https://chromedriver.chromium.org/downloads)
-* Open cmd or PowerShell and type `python bomb.py -t <amount of threads> <victim email>`
+Check arguments section below to see detailed information, or just run
 
-If you'd like using it silently, add `-s` or `--silence`
+    python bomb.py -t <amount of threads> <victim email>
+
+## Arguments
+* ***victim*** — Enter victim email
+* ***-t*** ***[--threads]*** — OPTIONAL: Enter amount of threads (4 is set by default)
+* ***-s*** ***[--silence]*** — OPTIONAL: Run threads silently
+* ***-w*** ***[--webdriver]*** — OPTIONAL: Choose chrome or firefox webdriver (Chrome is set by default)

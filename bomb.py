@@ -7,7 +7,7 @@ import threading
 import argparse
 import time
 
-parser = argparse.ArgumentParser(description='Use example: python bomb.py -e <email to spam> -t <amount of threads>')
+parser = argparse.ArgumentParser(description='Use example: python bomb.py <email to spam> -t <amount of threads>')
 parser.add_argument('victim',
                     type=str,
                     help='Enter victim email')
@@ -75,6 +75,7 @@ def spam():
     while True:
         # click submit button
         driver.find_element_by_xpath('/html/body/div[5]/div/div[6]/form/div[2]/button').click()
+        print('SENT TIME - ' + str(time.time()))
 
 
 for k in range(args.threads):

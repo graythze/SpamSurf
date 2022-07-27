@@ -25,3 +25,4 @@ Check arguments section below to see detailed information, or just run
 * ***-t*** ***[--threads]*** — OPTIONAL: Enter amount of threads (4 is set by default)
 * ***-s*** ***[--silence]*** — OPTIONAL: Run threads silently
 * ***-w*** ***[--webdriver]*** — OPTIONAL: Choose chrome or firefox webdriver (Chrome is set by default)
+* ***-n*** ***[--name]*** — OPTIONAL: Set a name for account
